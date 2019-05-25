@@ -29,10 +29,16 @@
   * 现在合并整理到此文档
     * 加上其他部分，如学习能力、逻辑能力等
 * 发布形式
-  * 代码仓库：https://github.com/crifan/crifan_play_learn_logic_spirit.git
-  * HTML文件：
-  * PDF文件：
-  * 在线网页：
+  * 代码仓库：
+    * https://github.com/crifan/crifan_play_learn_logic_spirit.git
+      * 源码是：`README.md`
+  * HTML：从`README.md`中生成（的`README.html`，并改名为index.html）
+    * 文件：https://github.com/crifan/crifan.github.io/blob/master/crifan_play_learn_logic_spirit/index.html
+    * 在线查看页面：https://crifan.github.io/crifan_play_learn_logic_spirit/
+      * 会自动跳转到：https://crifan.github.io/crifan_play_learn_logic_spirit/index.html
+  * PDF：从`README.md`中生成（的`README.pdf`）
+    * 文件：https://github.com/crifan/crifan_play_learn_logic_spirit/blob/master/README.pdf
+    * 下载：https://github.com/crifan/crifan_play_learn_logic_spirit/raw/master/README.pdf
 
 ## crifan的折腾精神==解决复杂问题的能力
 
