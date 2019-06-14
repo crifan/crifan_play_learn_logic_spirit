@@ -1,11 +1,11 @@
 # crifan的折腾精神、学习能力和逻辑能力的体现
 
-* 最后更新：`20190525`
+* 最后更新：`20190614`
 
 ## 说明
 
 * 内容说明
-  * 此文档专门整理出一些相关内容，以体现出[crifan](http://www.crifan.com/)的`折腾精神`，`学习能力`和`逻辑能力`
+  * 此文档专门用于整理出相关内容，以体现出[crifan](http://www.crifan.com/)的`折腾精神`、`学习能力`和`逻辑能力`
 * 本文目的
   * 证明自己的特长
     * 逻辑性比较强
@@ -30,7 +30,7 @@
     * 加上其他部分，如学习能力、逻辑能力等
 * 发布形式
   * 代码仓库：
-    * https://github.com/crifan/crifan_play_learn_logic_spirit.git
+    * https://github.com/crifan/crifan_play_learn_logic_spirit
       * 源码是：`README.md`
   * HTML：从`README.md`中生成（的`README.html`，并改名为index.html）
     * 文件：https://github.com/crifan/crifan.github.io/blob/master/crifan_play_learn_logic_spirit/index.html
