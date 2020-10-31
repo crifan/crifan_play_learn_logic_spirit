@@ -1,6 +1,12 @@
 # crifan的折腾精神、学习能力和逻辑能力的体现
 
-* 最后更新：`20190923`
+* 最后更新：`20201031`
+
+---
+
+[toc]
+
+---
 
 ## 说明
 
@@ -98,7 +104,7 @@
 
 ### 硬件
 
-### Netgear R6220路由器 变砖尝试修复的过程
+#### Netgear R6220路由器 变砖尝试修复的过程
 
 虽然最后没有把变砖的路由器救活，但是期间能够从网上繁杂的信息中，找到真正的串口的位置，以及最终买电烙铁和找到并买到合适的ttl的线，也算是不容易了。
 
@@ -654,7 +660,7 @@ supervisor还启动了Celery的worker和beat，这2个额外的Process
                 * 【已解决】用基于Procyon的Luyten反编译安卓jar包得到java源码
     * 最终从v3.4.8的hook出的dex，dex转jar，jar导出源码，找到了J字段的解密逻辑
 
-#### 搞懂少儿趣配音的请求中sign和auth_token参数值计算逻辑
+##### 搞懂少儿趣配音的请求中sign和auth_token参数值计算逻辑
 
 能最终
 
@@ -699,6 +705,68 @@ supervisor还启动了Celery的worker和beat，这2个额外的Process
 * [【已解决】公司Wi-Fi更换运营商导致IP变化导致远程Mongo连不上](http://www.crifan.com/company_wifi_ip_change_cause_remote_mongodb_connect_fail)
 
 #### Web前端
+
+##### WordPress中登录wp-login死循环
+
+现象是，crifan.com的WordPress尝试登录后台管理页面wp-admin，跳转到登录页wp-login，输入正确用户名和密码后，竟然还是回到登录页，之后就是死循环，始终处于登录页了。
+
+经过了很多方面的尝试：
+
+* 确定不是服务器的磁盘空间满了导致的
+* 清除浏览器（Chrome、Safari）缓存数据
+  * 包括：清除cookie
+    * Chrome：Application-》Clear Storage->Clear site data
+* 设置（Chrome、Safari）浏览器不禁止cookie
+  * 设置允许自己的 crifan.com使用cookie
+* WordPress的repair修复
+* wp-includes/pluggable.php
+  * 修改setcookie中：ADMIN_COOKIE_PATH -> SITECOOKIEPATH
+* 也去通过phpMyAdmin看了看数据库
+  * siteurl和home 都没问题
+  * 清除了session_tokens的值
+* 删除了根目录的.htaccess和子目录的.htaccess
+* wp-config.php中尝试设置了
+  * WP_HOME和WP_SITEURL
+  * FORCE_SSL_ADMIN
+  * WP_DEBUG
+  * WP_CACHE
+* 确认php.ini中的 输出缓冲区数据块设置 output_buffering
+* wp-content
+  * 通过重命名plugins，禁止了所有插件
+  * 通过重命名themes，禁止了所有主题
+
+最终才通过：
+
+* 从php的log文件（/usr/local/php/var/log/php-fpm.log）中看到了：RedisException OOM 
+  * 最终找到原因：redis的缓存满了
+    * 导致：无法缓存保存（验证了正确的用户和密码后所产生的）新的cookie
+      * 导致（虽然生成了正确的cookie但还是）无法登录
+
+然后去：
+
+* 增加最大缓存大小
+* 更改内存策略
+  * 把 默认的 不剔除过期数据：maxmemory-policy noeviction
+  * 改为 剔除过期中最近最少使用的数据：maxmemory-policy volatile-lru
+
+最终才解决掉，登录页死循环的问题。
+
+对此问题，折腾了足够多方面，尝试了足够多可能，都快要打算放弃了，幸好在最后一刻，终于找到原因，并解决掉了
+
+详见：
+
+* 【已解决】crifan.com的WordPress无法登录在wp-login登录页死循环
+* 【未解决】去修复WordPress登录页死循环：去看php的log日志
+* 【未解决】去修复WordPress登录页死循：缓存方面问题
+* 【未解决】修复WordPress登录页死循环：wp-config各种设置
+* 【未解决】WordPress警告：Warning Cannot modify header information headers already sent by output started at
+* 【未解决】修复WordPress登录页死循环：plugins插件方面问题
+* 【未解决】修复WordPress登录页死循环：themes主题方面问题
+* 【未解决】去修复WordPress登录页死循环：看看phpMyAdmin数据库
+* 【未解决】修复WordPress登录页死循环：cookie方面问题
+* 【未解决】去修复WordPress登录页死循：setcookie函数
+* 【未解决】去修复WordPress登录页死循：repair修复
+* 【已解决】WordPress的PHP的log日志出现：PHP message RedisException OOM command not allowed when used memory maxmemory in plugins redis-cache
 
 ##### nginx的https的ssl证书无效，https域名的网页地址打不开
 
@@ -880,7 +948,7 @@ Django后端的代码耗时太长，很多的mysql的查询和其他操作，导
 
 * [【已解决】Antd Pro中前端列表页面loading加载很慢](https://www.crifan.com/antd_pro_frontend_table_list_page_loading_very_slow)
 
-#### 已正确配置DNS解析sxl.cn中的naturling.com官网但是还是无法打开
+##### 已正确配置DNS解析sxl.cn中的naturling.com官网但是还是无法打开
 
 解决问题的核心点：
 
