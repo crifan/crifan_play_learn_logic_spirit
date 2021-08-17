@@ -1,6 +1,6 @@
 # crifan的折腾精神、学习能力和逻辑能力的体现
 
-* 最后更新：`20201031`
+* 最后更新：`20210817`
 
 ---
 
@@ -131,6 +131,102 @@
 * [【记 录】第三次去研究：Cygwin下编译Buildroot时在编译libtool-2.2.10时出错：/usr/lib/gcc/i686-pc- cygwin/4.7.3/cc1.exe: error while loading shared libraries: ?: cannot open shared object file: No such file or directory](https://www.crifan.com/cygwin_buildroot_usr_lib_gcc_i686_pc_cygwin_4_7_3_cc1_exe_error_while_loading_shared_libraries_cannot_open_shared_object_file_no_such_file_or_directory/)
 
 ### 上层软件
+
+#### 安卓破解
+
+##### 小花生的app的破解
+
+* 最关键的前提：
+  * v3.4.8
+    * 没有被加固到
+      * 否则dex导出了jar时（估计）就会报错
+        * 不会这么轻易的导出可用的dex
+    * 没有被混淆
+      * 否则即使jar导出了源码，也无法看清原始代码中的加密逻辑
+* 自己折腾过程中：
+  * 关键点：
+    * 在最新版v3.6.9用FDex2导出（200多B的无效的）dex无果后
+      * 能想到去试试其他的旧版本
+    * 以及在试试旧版本期间
+      * v1.5虽然可以导出dex（dex导出jar，jar导出源码）
+        * 主要是其中代码都是错误bad dex opcode
+          * 无法找到源码
+        * 其次是代码被混淆了
+          * 即使找到，也不容易看清楚源码逻辑
+  * 中等难度的地方
+    * 如何搞清楚apktool和dex2jar、jd-gui等之间的关系
+      * 搞清楚如何利用导出的文件，后续用什么工具，如何去处理
+    * 如何正确的使用各种工具
+      * root了的安卓 + XPosed
+        * 用的是之前破解安卓app中https的ssl证书而搭建的环境：
+          * 夜神安卓模拟器
+          * XPosed
+      * 再次基础上再去安装和使用工具
+        * FDex2
+          * 才能继续导出dex文件
+        * 才能继续用夜神中文件管理器导出文件
+          * 自己要解决夜神和mac的共享目录的问题
+            * 【已解决】夜神安卓模拟器中导出文件到mac电脑
+            * 【已解决】Nox夜神安卓模拟器中/mnt/shared对应Mac的共享目录在哪里
+      * 最后才是用工具查看jar包，导出源码
+        * 用jd-gui导出源码
+          * 【已解决】mac版JD-GUI查看并导出jar包的java源代码
+          * 也顺带去试了其他工具，比如：
+            * jadx
+            * Procyon：命令行工具
+              * Luyten：基于Procyon的GUI工具
+                * 【已解决】用基于Procyon的Luyten反编译安卓jar包得到java源码
+    * 最终从v3.4.8的hook出的dex，dex转jar，jar导出源码，找到了J字段的解密逻辑
+
+详见：
+
+* [【已解决】Python实现小花生中addSignature的md5加密生成签名的逻辑](https://www.crifan.com/python_implements_md5_encryption_addsignature_generate_signature_logic)
+* [【已解决】小花生app中调用接口parentChildReadingBookQuery2时timestamp和signature生成的逻辑](https://www.crifan.com/floret_born_app_call_interface_parentchildreadingbookquery2_timestamp_signature_generation_logic)
+* [【记录】爬取小花生app中自主阅读馆和亲子阅读馆中的有音频的绘本数据](https://www.crifan.com/crawl_xiaohuasheng_app_self_reading_parent_child_reading_has_audio_storybook_data)
+* [【已解决】为何Python中32字节的md值和小花生中getMD5Str计算出的md5值不同](https://www.crifan.com/why_32_byte_md_value_python_different_from_md5_value_calculated_by_getmd5str_python)
+* [【已解决】小花生中如何得到getToken的计算逻辑以便得到正确的md5值可以正常请求接口](https://www.crifan.com/how_get_calculation_logic_gettoken_so_that_correct_md5_value_can_be_obtained_request_interface_normally)
+* [【已解决】从不同版本的小花生apk中反编译出包含业务逻辑代码的dex和jar包源码](https://www.crifan.com/dex_jar_package_source_code_containing_business_logic_decompiled_from_different_versions_xiaoseng_apk)
+* [【已解决】小花生安卓app的v3.4.8版破解后找到源码中是否包含J字段的加密逻辑](https://www.crifan.com/peanut_android_app_v3_4_8_version_cracked_find_whether_source_code_contains_j_field_encryption_logic)
+* [【已解决】用Charles+Postman+Python解密脚本分析小花生app中绘本接口和返回信息](https://www.crifan.com/charles_postman_python_decryption_script_was_used_analyze_interface_picture_book_return_information_xiausheng_app)
+* [【已解决】尝试破解小花生app安卓apk希望看到api返回的json中的J的解密算法得到明文](https://www.crifan.com/try_crack_xiaofang_app_android_apk_want_see_api_return_json_j_decryption_algorithm_get_plaintext)
+* [【已解决】小花生app中api请求返回json的C，J，M，ST的含义和如何破解解密](https://www.crifan.com/c_j_m_st_json_api_request_app_how_decrypt_meaning)
+* [【已解决】找小花生app的旧版本apk并尝试能否安装使用](https://www.crifan.com/find_old_version_xiaoseng_app_apk_try_install_use_it)
+* [【已解决】PySpider中用Python代码爬取小花生app中绘本数据](https://www.crifan.com/pyspider_use_python_crawl_xiaohuasheng_app_storybook_data)
+* [【已解决】从反编译小花生apk得到的包含业务逻辑代码中找到J字段解码的逻辑并用Python实现](https://www.crifan.com/decoding_logic_j_field_was_found_code_containing_business_logic_obtained_from_decompiled_xiaosang_apk_realized_python)
+
+##### 搞懂少儿趣配音的请求中sign和auth_token参数值计算逻辑
+
+能最终
+
+* 如何计算auth_token的值
+* 如何计算sign的值
+
+主要过程是：
+
+* 前提：之前有反编译安卓apk以得到源码的基础
+  * 且同时用多种反编译方式
+    * 从而从不同的角度，反推以找到真正的计算sign值的相关代码的位置
+* 更主要的是
+  * 从反编译后残缺的不完整的错乱的代码 + 加上对代码足够敏感：能顺藤摸瓜，找到相关计算逻辑
+    * 入口点是先去搜/square/courseNature，找到确定的类包含对应api的host
+    * 继续反推过程，其中找到FZNetApiManager.java
+    * 通过代码加上自己的灵光一现的思路，推断auth_token可能是不变的
+      * 经过重新登录app以确认推断auth_token是登陆后就不变的
+    * 再去反推计算sign需要哪些参数：除了timestamp，是带uid和auth_token，以及额外的security_key的
+    * 再去尝试理解java代码，搞清楚计算逻辑
+      * 先排序，再key+value去合并字符串
+    * 最终调用函数去计算
+      * 该函数经过调研确定，就是java版本的md5值的计算，计算出32位字符串
+* 最终再加上之前的python计算md5经验
+  * 才能把java版的md5计算，转换出python的版本，计算出sign的值
+
+详见：
+
+* 【未解决】重爬少儿趣配音的所有视频
+* 【已解决】用jadx破解出安卓apk少儿趣配音得到源码
+* 【已解决】用dex转jar再转java的三步方式导出安卓app少儿趣配音的源码
+* 【未解决】破解安卓应用少儿趣配音的源码以便于找到sign签名和auth_token的算法计算逻辑
+* 【未解决】用Python代码实现少儿趣配音的请求参数sign的计算逻辑
 
 #### Python后端
 
@@ -613,86 +709,6 @@ supervisor还启动了Celery的worker和beat，这2个额外的Process
 注：后来又去整理出独立的教程了：
 
 * [app抓包利器：Charles](http://book.crifan.com/books/app_capture_package_tool_charles/website)
-
-#### 安卓破解
-
-##### 小花生的app的破解
-
-* 最关键的前提：
-  * v3.4.8
-    * 没有被加固到
-      * 否则dex导出了jar时（估计）就会报错
-        * 不会这么轻易的导出可用的dex
-    * 没有被混淆
-      * 否则即使jar导出了源码，也无法看清原始代码中的加密逻辑
-* 自己折腾过程中：
-  * 关键点：
-    * 在最新版v3.6.9用FDex2导出（200多B的无效的）dex无果后
-      * 能想到去试试其他的旧版本
-    * 以及在试试旧版本期间
-      * v1.5虽然可以导出dex（dex导出jar，jar导出源码）
-        * 主要是其中代码都是错误bad dex opcode
-          * 无法找到源码
-        * 其次是代码被混淆了
-          * 即使找到，也不容易看清楚源码逻辑
-  * 中等难度的地方
-    * 如何搞清楚apktool和dex2jar、jd-gui等之间的关系
-      * 搞清楚如何利用导出的文件，后续用什么工具，如何去处理
-    * 如何正确的使用各种工具
-      * root了的安卓 + XPosed
-        * 用的是之前破解安卓app中https的ssl证书而搭建的环境：
-          * 夜神安卓模拟器
-          * XPosed
-      * 再次基础上再去安装和使用工具
-        * FDex2
-          * 才能继续导出dex文件
-        * 才能继续用夜神中文件管理器导出文件
-          * 自己要解决夜神和mac的共享目录的问题
-            * 【已解决】夜神安卓模拟器中导出文件到mac电脑
-            * 【已解决】Nox夜神安卓模拟器中/mnt/shared对应Mac的共享目录在哪里
-      * 最后才是用工具查看jar包，导出源码
-        * 用jd-gui导出源码
-          * 【已解决】mac版JD-GUI查看并导出jar包的java源代码
-          * 也顺带去试了其他工具，比如：
-            * jadx
-            * Procyon：命令行工具
-              * Luyten：基于Procyon的GUI工具
-                * 【已解决】用基于Procyon的Luyten反编译安卓jar包得到java源码
-    * 最终从v3.4.8的hook出的dex，dex转jar，jar导出源码，找到了J字段的解密逻辑
-
-##### 搞懂少儿趣配音的请求中sign和auth_token参数值计算逻辑
-
-能最终
-
-* 如何计算auth_token的值
-* 如何计算sign的值
-
-主要过程是：
-
-* 前提：之前有反编译安卓apk以得到源码的基础
-  * 且同时用多种反编译方式
-    * 从而从不同的角度，反推以找到真正的计算sign值的相关代码的位置
-* 更主要的是
-  * 从反编译后残缺的不完整的错乱的代码 + 加上对代码足够敏感：能顺藤摸瓜，找到相关计算逻辑
-    * 入口点是先去搜/square/courseNature，找到确定的类包含对应api的host
-    * 继续反推过程，其中找到FZNetApiManager.java
-    * 通过代码加上自己的灵光一现的思路，推断auth_token可能是不变的
-      * 经过重新登录app以确认推断auth_token是登陆后就不变的
-    * 再去反推计算sign需要哪些参数：除了timestamp，是带uid和auth_token，以及额外的security_key的
-    * 再去尝试理解java代码，搞清楚计算逻辑
-      * 先排序，再key+value去合并字符串
-    * 最终调用函数去计算
-      * 该函数经过调研确定，就是java版本的md5值的计算，计算出32位字符串
-* 最终再加上之前的python计算md5经验
-  * 才能把java版的md5计算，转换出python的版本，计算出sign的值
-
-详见：
-
-* 【未解决】重爬少儿趣配音的所有视频
-* 【已解决】用jadx破解出安卓apk少儿趣配音得到源码
-* 【已解决】用dex转jar再转java的三步方式导出安卓app少儿趣配音的源码
-* 【未解决】破解安卓应用少儿趣配音的源码以便于找到sign签名和auth_token的算法计算逻辑
-* 【未解决】用Python代码实现少儿趣配音的请求参数sign的计算逻辑
 
 #### 数据库
 
