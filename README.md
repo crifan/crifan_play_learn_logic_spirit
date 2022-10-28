@@ -1,6 +1,6 @@
 # crifan的折腾精神、学习能力和逻辑能力的体现
 
-* 最后更新：`20210817`
+* 最后更新：`20221028`
 
 ---
 
@@ -25,9 +25,9 @@
       * 追根溯源
     * 能想办法提高做事情的效率
       * 详见：
-        * [如何提高工作效率](https://book.crifan.com/books/improve_work_efficiency/website/)
+        * [如何提高工作效率](https://book.crifan.o'r'g/books/improve_work_efficiency/website/)
     * 总结出
-      * [技术学习的思路和方法的经验与总结](https://book.crifan.com/books/learn_tech_method_experience/website/)
+      * [技术学习的思路和方法的经验与总结](https://book.crifan.org/books/learn_tech_method_experience/website/)
       * 和其他各种技术和非技术的教程
         * [Crifan的电子书的使用说明](https://github.com/crifan/crifan_ebook_readme)
 * 内容历史
@@ -38,13 +38,13 @@
   * 代码仓库：
     * https://github.com/crifan/crifan_play_learn_logic_spirit
       * 源码是：`README.md`
-  * HTML：从`README.md`中生成（的`README.html`，并改名为index.html）
+  * HTML：`README.md` 生成 `README.html` 改名 `index.html`）
     * 文件：https://github.com/crifan/crifan.github.io/blob/master/crifan_play_learn_logic_spirit/index.html
     * 在线查看页面：https://crifan.github.io/crifan_play_learn_logic_spirit/
       * 会自动跳转到：https://crifan.github.io/crifan_play_learn_logic_spirit/index.html
-  * PDF：从`README.md`中生成（的`README.pdf`）
-    * 文件：https://github.com/crifan/crifan_play_learn_logic_spirit/blob/master/README.pdf
-    * 下载：https://github.com/crifan/crifan_play_learn_logic_spirit/raw/master/README.pdf
+  * PDF：`README.md` 生成 `README.pdf` 改名 `crifan_play_learn_logic_spirit.pdf`）
+    * 文件：https://github.com/crifan/crifan_play_learn_logic_spirit/blob/master/crifan_play_learn_logic_spirit.pdf
+    * 下载：https://raw.githubusercontent.com/crifan/crifan_play_learn_logic_spirit/master/crifan_play_learn_logic_spirit.pdf
 
 ## crfian的学习能力
 
@@ -126,13 +126,146 @@
 
 详见：
 
-* [【已解决】cygwin下make编译buildroot时在libtool-2.2.10时出错：configure: error: C compiler cannot create executables](https://www.crifan.com/cygwin_buildroot_make_libtool_2_2_10_configure_error_c_compiler_cannot_create_executables/)
-* [【已 解决】再次研究：Cygwin下编译Buildroot时在编译libtool-2.2.10时出错：/usr/lib/gcc/i686-pc- cygwin/4.7.3/cc1.exe: error while loading shared libraries: ?: cannot open shared object file: No such file or directory](https://www.crifan.com/cygwin_buildroot_cc1_exe_error_while_loading_shared_libraries_cannot_open_shared_object_file_no_such_file_or_directory/)
-* [【记 录】第三次去研究：Cygwin下编译Buildroot时在编译libtool-2.2.10时出错：/usr/lib/gcc/i686-pc- cygwin/4.7.3/cc1.exe: error while loading shared libraries: ?: cannot open shared object file: No such file or directory](https://www.crifan.com/cygwin_buildroot_usr_lib_gcc_i686_pc_cygwin_4_7_3_cc1_exe_error_while_loading_shared_libraries_cannot_open_shared_object_file_no_such_file_or_directory/)
+* [【已解决】cygwin下make编译buildroot时在libtool-2.2.10时出错：configure: error: C compiler cannot create executables](https://www.crifan.org/cygwin_buildroot_make_libtool_2_2_10_configure_error_c_compiler_cannot_create_executables/)
+* [【已 解决】再次研究：Cygwin下编译Buildroot时在编译libtool-2.2.10时出错：/usr/lib/gcc/i686-pc- cygwin/4.7.3/cc1.exe: error while loading shared libraries: ?: cannot open shared object file: No such file or directory](https://www.crifan.org/cygwin_buildroot_cc1_exe_error_while_loading_shared_libraries_cannot_open_shared_object_file_no_such_file_or_directory/)
+* [【记 录】第三次去研究：Cygwin下编译Buildroot时在编译libtool-2.2.10时出错：/usr/lib/gcc/i686-pc- cygwin/4.7.3/cc1.exe: error while loading shared libraries: ?: cannot open shared object file: No such file or directory](https://www.crifan.org/cygwin_buildroot_usr_lib_gcc_i686_pc_cygwin_4_7_3_cc1_exe_error_while_loading_shared_libraries_cannot_open_shared_object_file_no_such_file_or_directory/)
 
 ### 上层软件
 
-#### 安卓破解
+#### iOS逆向
+
+##### 实现抖音反越狱检测，使得成功点赞和关注
+
+现象：
+
+希望实现iOS版抖音的反越狱检测，最终实现越狱iPhone手机中的抖音新注册账号可以点赞和关注
+
+注：普通越狱手机，新注册抖音号，无法点赞和关注
+
+折腾过程：
+
+* 搞懂越狱插件开发的基本流程
+  * 最开始，从theos都没听过，到网上找资料，无意间看到有人提到theos，到自己去找和研究theos，接着就是学习theos，搭建theos开发环境，去跑通插件开发环境
+    * 当然，之后才慢慢清楚，CydiaSubstrate、MonkeyDev等更多的相关框架和工具
+* 搞懂常见越狱手段有哪些
+  * 从不知道越狱有哪些技术，到整理和学习了，几十种，几大类的检测越狱的各种手段
+* 分别一一去实现反越狱的功能点
+  * 先是去实现了常见的，基于文件的，文件是否存在，是否是软链接等等的各种函数
+  * 以及还实现了其他的一些，比如dyld相关的，尤其是_dyld_image_count、_dyld_image_name等的hook
+    * 始终无法实现抖音的反越狱
+* 换思路，去逆向破解抖音，找具体的越狱检测相关代码和逻辑
+  * 要点之一是：同事辅助用Choicy去Disable Tweak Injection抖音，结果竟然真的是：可以点赞和关注
+    * 且此时明显和越狱文件是否存在这个方向，根本没关系
+      * 且后续调试输出log也发现，关于越狱检测去检测文件的函数调用，本身就很少，即使调用，传入的越狱文件路径也很少，所以不太像是核心和主力的越狱检测
+  * 具体研究包括2类
+    * 静态分析：用IDA分析相关函数所属代码段
+    * 动态调试：用（之前的debugserver+lldb，和后来的）XCode+MonkeyDev，去调试寻找可能的越狱检测相关逻辑
+      * 也包括期间的：从没用过，但慢慢了解了基本的lldb的用法，尤其是从地址寻找相关所属动态库的代码段位置，从而能再去IDA中分析代码
+      * 但是始终属于，在黑暗深林里摸索，没有看到一丝曙光，最主要是完全没有方向
+* 里程碑进步：终于通过动态调试，从_dyld_get_image_name的上层调用函数中，找到了___lldb_unnamed_symbol148，从而去IDA中找到了_RxAnnotationInlineLoader的load
+  * 然后去研究_RxAnnotationInlineLoader的load的hook
+    * 但是依旧不行，直接hook忽略掉%orig代码逻辑，会导致抖音崩溃
+  * 但是，开启了，动态调试研究抖音内部，在早期调用了哪些 越狱检测相关函数
+    * 主要有：_dyld_register_func_for_add_image、sysctl的KERN_PROC_PID、dladdr、NSClassFromString等等
+    * 从而：找到具体调用位置的上层，和AwemeCore相关的函数
+    * 再去IDA中找对应的代码段，再去研究，到底有哪些越狱检测相关逻辑
+    * 但是却由于ObjC的反汇编，IDA的伪代码，无法看出更多业务逻辑
+    * 最多，也只能找到：只有一个getsectiondata比较有关系
+      * 但是去直接hook了getsectiondata后，也没有解决问题
+  * 算是：黑暗深林中看到一丝丝曙光，至少感觉方向，但是依旧没有更多进展
+* 最终的胜利：getsectiondata和dladdr的配合hook
+  * 之前虽已单独hook了getsectiondata，但是当时是dladdr已hook了，导致getsectiondata从dladdr解析后的动态库，已经是被hook后的返回的NULL，无法判断是否是jailbreak的dylib，导致最终无法完美hook
+  * 最后是，在某次灵光乍现，想到了办法（去给dladdr加上地址偏移），去让getsectiondata调用dladdr，能让dladdr区分出，获取原始返回结果，用于getsectiondata得到dylib的name，判断是否是越狱库，从而看看是否有啥进展
+  * 没报太大希望的前提下，去改了代码，实现了 getsectiondata+dladdr的配合hook，即getsectiondata中调用原始dladdr，其他地方调用被hook的dladdr，最终竟然：抖音反越狱就成功了，可以点赞和关注了
+    * 期间其实还有其他很多困难，包括最后2022的2月前后，竟然抖音放开风控，不开启自己插件，也能点赞关注，导致无法测试自己插件是否真的生效了
+
+最大的心得：
+
+* 对解决技术问题，有足够的信心
+* 有足够的技术敏感度
+* 其他人的配合，有时候也会意想不到的帮助
+  * 此处是：Choicy的Disable Tweak Injection测试结果，验证了，反越狱主要和 动态库注入有关，尤其明确了大方向，减少了战略找寻方向的时间
+* 持之以恒的坚持
+
+最终，所以再复杂的技术问题，都是可以搞定的，最多就是过程比较曲折而已。
+
+##### iOS的tweak中hook syscall时可变参数传递始终异常最终发现是递归调用死循环
+
+现象：
+
+用Logos的%hookf去hook syscall函数，需要计算出原先可变参数的个数，传递给%orig的syscall函数。但是始终出错。
+
+折腾过程：
+
+* 最开始只是参考https://github.com/vtky/Swizzler逻辑，去计算syscall的可变参数
+* 但是：本来期望的算出2个参数，却始终算出来是9个参数，以为是va_arg计算可变参数个数的逻辑不对
+  * 不过也注意到细节：第一次是算出2个参数，之后始终算出是9个参数了
+  * 但是试了重启项目，重启XCode，重启被测iPhone，重启Mac等各种手段，始终都是算出9个参数了
+    * 都以为被测iPhone难道底层机制被破坏，导致无法正常调用syscall函数了？
+  * 尝试了其他一些细节，比如把void *改为char *，问题依旧
+* 后来：以为是tweak代码没生效
+  * 因为输出的log，都是旧代码的log，而不是最新代码的log
+    * 后记：是控制台在重新加载后，显示的是历史上所有的log，默认按时间排序后，最开始显示的始终是第一次的log
+      * 以为是代码没生效呢
+        * 其实是log日志看错了，把旧的以为是最新的
+  * 以为是其他插件冲突，在卸载重装插件，重启iPhone等手段无效的前提下
+  * 暂时禁用了其他插件，问题偶尔解决，偶尔又复现
+* 再后来：继续研究参数为何始终是9个
+  * 从stat64换其他比如stat去测试，发现第一次调用时的参数个数，有变化，比如是8个，后来偶尔出现正常的2个
+  * 期间有个发现：此处竟然能用XCode去调试看到异常出错时的函数调用堆栈
+  * 然后才有机会注意到：貌似此处的函数 _logos_function$_ungrouped$syscall(int, …) 被调用了3600多次
+  * 才隐约感觉，或许是syscall被递归调用导致死循环了？
+* 然后才想到，去研究Logos中的函数，为何没有递归调用死循环？
+  * 才发现Logos是对于MSHookFunction的封装
+    * 而MSHookFunction内部机制就是：
+      * 函数：xxx
+        * 会额外生成一个orig_xxx
+        * 以及自己新写的函数
+          * 比如：https://github.com/vtky/Swizzler 中是 replaced_xxx
+          * 而Logos中生成的是：function_xxx
+      * 举例：stat函数
+        * orig_stat
+        * function_stat
+    * -》function_xxx，不会和orig_xxx重名，所以不会递归调用不会导致死循环
+* 然后此处在Logos的%hookf中hook syscall的正确做法是：
+  * 注：此处当syscall实现stat或stat64时，解析出可变参数个数是2个
+  * 不能直接调用syscall
+    * syscallRetValue = syscall(number, para1, para2);
+      * 否则就会导致递归调用死循环
+  * 而要借用%orig去调用
+    * 由于syscall本身是可变参数，所以要先确保计算出正确的参数个数，再去调用%orig
+      * 正确调用方式是：
+        * syscallRetValue = %orig(number, para1, para2);
+          * （待确认）内部其实就是
+            * syscallRetValue = function_syscall(number, para1, para2);
+
+核心要点：
+
+* 幸好XCode能调试异常时tweak的代码，使得（后期才）能注意到是syscall发生了递归调用导致死循环
+  * 否则没法调试，不知道内部出错的情况，很难想到是这个原因（这个思路，这条错误的方向）
+    * 如果方向错误，是不可能找到原因并最终解决问题的
+* 当然，也要加上
+  * 自己有能力深究和验证自己的思路和推断
+    * 比如：有能力研究Logos代码，搞懂内部函数的逻辑
+      * 即从xxx函数，变成 orig_xxx和function_xxx
+  * 以及：技术敏感度高
+    * = 思路够广+ 能关联到之前的相关内容
+    * 比如：能想到Swizzler 中是 replaced_xxx的写法
+      * 从而辅助佐证了自己对Logos内部逻辑的判断，辅助确保了思路和方向是正确的
+
+以上几条，缺一不可，否则都无法找到错误原因，无法解决问题
+
+详见：
+
+* 【未解决】C语言中如何获取到带三个点的函数中的可变参数
+* 【已解决】C语言中解析获取计算出syscall函数可变参数的参数个数
+* 【已解决】iOS的tweak插件syscall可变参数va_arg计算参数始终是9个参数
+* 【已解决】iOS的绕过syscall的tweak插件已安装最新版但是代码不生效
+* 【已解决】iOS的插件syscall的hook出错：原始的syscall函数没有被正常调用
+* 【已解决】iOS的tweak插件去hook函数syscall出现递归调用死循环
+* 【已解决】iOS的tweak插件Logos的%orig的实现原理如何规避绕开原函数的递归调用
+
+#### Android逆向
 
 ##### 小花生的app的破解
 
@@ -227,6 +360,119 @@
 * 【已解决】用dex转jar再转java的三步方式导出安卓app少儿趣配音的源码
 * 【未解决】破解安卓应用少儿趣配音的源码以便于找到sign签名和auth_token的算法计算逻辑
 * 【未解决】用Python代码实现少儿趣配音的请求参数sign的计算逻辑
+
+##### 爬取趣配音APP的show的detail
+
+* 除了基本的技能：
+  * 利用之前的Charles+Nox，分析出如何获取到最全最多的show的detail的完整请求的顺序和参数等细节
+    * 详见：【已解决】分析少儿趣配音APP中如何获取用户的show的逻辑
+* 之外，还要有：
+  * 足够的技术敏感度
+    * 能想到，大量的401背后，可能是之前自定义taskid导致的
+      * 从而才能最终找到根源，确保然后通过借助itag参数，确保新请求可以执行，而不是旧请求
+        * 详见：【已解决】PySpider爬取趣配音一段时间后出现大量的异常401认证过期的请求
+  * 善于利用现有资源
+    * 在已知问题原因，需要对于重复的user去重，然后利用找PySpider资料，最终找到可以通过自定义taskid实现此目的
+      * 详见：【已解决】PySpider中如何忽略部分参数去指定相同url以避免重复爬取而导致死循环
+
+详见：
+
+* 【已解决】PySpider代码写好但是始终无法爬取到show的detail
+* 【已解决】PySpider中如何忽略部分参数去指定相同url以避免重复爬取而导致死循环
+* 【已解决】PySpider爬取趣配音一段时间后出现大量的异常401认证过期的请求
+* 【已解决】重爬少儿趣配音的所有用户的show
+* 【已解决】分析少儿趣配音APP中如何获取用户的show的逻辑
+
+#### Xcode
+
+##### Xcode调试iPhone报错：Could not launch failed to get the task for process
+
+现象：
+
+XCode调试iOS的app到iPhone，结果报错：Could not launch，failed to get the task for process
+
+折腾过程：
+
+* 本以为很简单的，感觉是常见现象，所以去网上找资料，结果只能找到关于debug失效相关的一些设置
+  * 自己都已经先后尝试过了，问题依旧
+    * 期间还涉及到断点调试失效的问题的原因总结和回复了别人的帖子
+      * [Why aren't Xcode breakpoints functioning? - Stack Overflow](https://stackoverflow.com/questions/64790/why-arent-xcode-breakpoints-functioning/69503397#69503397)
+  * 且期间还会出现之前的：Unable to install 方面的问题
+* 后来的后来，经过各种尝试，都无效
+  * 调整和设置各种Code Signing参数
+  * 调整和设置各种Provisioning Profile参数
+  * 苹果开发者账号 = 开发者中心：调整、删除、重置各种配置
+    * 包括ID、Certificate、Provisioning Profile等
+  * 删除DrivedData
+  * 重新建iOS的项目
+  * 重启Mac
+  * 重启XCode
+  * 删除Provisioning Profile
+  * 更换被测设备iPhone
+  * 设置Legacy Build System
+* 最后的最后：通过升级XCode（XCode 13.0升级到XCode 13.1），而解决了问题
+  * 确认了问题根源：XCode 13.0自身的bug，无法正常给iOS的app生成Provisioning Profile
+
+要点：
+
+* 技术敏感度 = 能记住并联想到之前相关内容
+  * 隐约记得之前XCode有过更新提示：XCode 13.1
+    * 当时没去更新
+  * 此处解决问题期间，怀疑是否是XCode的bug
+    * 最后真的是通过升级了版本，而解决了问题
+* 耐心
+  * 在尝试XCode升级期间，由于网络不够好，下载很慢，先后消耗了1天多，最后才下载完毕和升级安装XCode的
+    * 如果耐心稍等差一点，就放弃了更新XCode
+      * 就无法解决此处问题了
+
+详见：
+
+* 【已解决】XCode调试iOS的app到越狱iPhone报错：Could not launch failed to get the task for process
+* 【未解决】XCode中尝试解决failed to get the task for process：找证书和签名方面设置
+* 【未解决】尝试解决XCode调试报错failed to get the task for process：重新安装XCode
+* 【基本解决】搞懂XCode中Signing中Code Signing相关参数的逻辑
+* 【已解决】Xcode中Signing的Code Signing Identity中Apple Development Mao Li(UBFSP2P5PM)中UBFSP2P5PM的含义和来源
+* 【未解决】XCode报错failed to get the task for process：换另外iPhone7试试
+* 【已解决】尝试解决XCode报错failed to get the task for process：XCode版本重装或升级
+
+##### Xcode调试iPhone报错：Unable to install
+
+现象：
+
+* XCode调试iOS的app到iPhone报错：Unable to install
+  * 详细信息是：A system application with the given bundle identifier is already installed on the device and cannot be replaced
+
+折腾过程：
+
+* 看起来是：已安装过app
+  * 但是此处实际上已删除之前安装过的app，却出现此错误，很奇怪
+    * 最后是重启iPhone，解决了此问题，但是又出现其他的于此相关的问题：
+* iOSOpenDev的XCode调试iPhone6报错：Unable to install The application could not be verified
+  * 去掉之前iOSOpenDev的XCode的各种设置（Run Script、User-Defined参数等），问题依旧。
+  * 最终是：CODE_SIGNING_ALLOWED=NO，解决了证书问题
+* 期间涉及到：code signing、证书Provisioning profile等方面问题，会导致：iPhone Developer no identity found
+  * 尝试了Singin的参数Code Sign Identity、Code Sign Style、Provisioning Profile的各种组合，都不行
+  * 会导致各种错误，包括Signing with codesign Apple Development: ambiguous matches Failed、iPhone Developer: no identity found
+  * 也删除过Mac中钥匙串中的相关证书和秘钥
+  * 也去撤销Revoke certificate过证书
+  * 始终无法解决，最终：XCode重启，解决了此问题。。。
+
+要点：
+
+* XCode本身的内部的Code Sign的bug，会导致各种异常问题
+  * 即使尝试了各种手段，也未必能解决
+    * 只能靠XCode自己（重启）才能解决
+
+详见：
+
+* 【已解决】调试iOSOpenDev的XCode的iOS的app
+* 【已解决】iOSOpenDev的XCode调试iPhone7报错：Unable to install A system application with the given bundle identifier is already installed on the device and cannot be replaced
+* 【已解决】XCode中删除掉User-Defined的自定义参数
+* 【已解决】iOSOpenDev的XCode调试iPhone6报错：Unable to install The application could not be verified
+* 【已解决】iOSOpenDev的XCode项目编译报错：iPhone Developer no identity found
+* 【未解决】XCode报错iPhone Developer no identity found：找签名证书配置方面问题
+* 【记录】Mac中钥匙串中删除iOS的app的苹果开发相关证书
+
 
 #### Python后端
 
@@ -554,8 +800,8 @@ supervisor还启动了Celery的worker和beat，这2个额外的Process
       * 才能想到去找不让`PySpider`中`self.crawl`的`POST`的`data`不被`encode`编码
         * 最终解决了问题，获取到希望的数据
     * -》具体涉及到了哪些知识
-      * [主流数据格式：JSON](http://book.crifan.com/books/common_data_format_json/website)
-      * [HTTP知识总结](http://book.crifan.com/books/http_summary/website)
+      * [主流数据格式：JSON](http://book.crifan.org/books/common_data_format_json/website)
+      * [HTTP知识总结](http://book.crifan.org/books/http_summary/website)
       * [字符编码详解](https://www.crifan.com/files/doc/docbook/char_encoding/release/html/char_encoding.html)
 
 详见：
@@ -708,7 +954,384 @@ supervisor还启动了Celery的worker和beat，这2个额外的Process
 
 注：后来又去整理出独立的教程了：
 
-* [app抓包利器：Charles](http://book.crifan.com/books/app_capture_package_tool_charles/website)
+* [app抓包利器：Charles](http://book.crifan.org/books/app_capture_package_tool_charles/website)
+
+##### 在线服务器中Selenium模拟bing必应搜索始终报错StaleElementReferenceException
+
+现象：
+
+在线服务器（无GUI的CentOS7）中，Selenium模拟必应搜索返回搜索结果后，查找元素提取内容时，经常报错：
+`ERROR:root:selenium open https://cn.bing.com/ exception: Message: stale element reference: element is not attached to the page document
+ (Session info: headless chrome=92.0.4515.131)`
+内部发生了异常：StaleElementReferenceException
+
+折腾过程：
+
+* 原以为是stale方面的问题
+  * 以为页面变化：加了 driver.refresh()
+  * 本地Mac测试，Selenium+headless：没问题
+  * 笔误：加了headless=False，会导致
+    * selenium.common.exceptions.WebDriverException: Message: unknown error: Chrome failed to start: exited abnormally， (unknown error: DevToolsActivePort file doesn't exist)
+  * 以为是没有关闭Selenium的driver的问题：加了 closeBrowser(driver)
+  * 基本能复现：第一次运行没问题，第二次运行就有问题
+    * 试了打印is_displayed，是True还是False
+      * 期间为了让（headless时）元素能显示，试了
+        * 设置window的size
+          * chromeOptions.add_argument('--window-size=1920x1080')
+          * driver.set_window_size(1920, 1080)
+        * 切换页面
+          * driver.switch_to.window(handles[-1])
+      * 貌似：正常时，is_displayed=True
+        * 以为就是：is_displayed=False，就异常，无法获取元素，而报错
+      * 最后确认：换Selenium-wire后，也正常，但is_displayed=False
+    * 顺带加其他参数试试效果
+      * chrome_options.add_argument('--disable-gpu')
+      * chromeOptions.add_experimental_option("excludeSwitches", ["enable-automation"])
+      * chromeOptions.add_experimental_option('useAutomationExtension', False)
+  * 优化调试：把之前supervisor部署，换gunicorn部署，方便及时调试
+  * 确认session不是同一个：前面2次api调用不是同一个session，而导致的webdriver有干扰
+    * MainProcess 2次都是 139741481666368
+    * session
+      * 第一次：0fc608b4f67423b872d4627e0cf5c7c3
+      * 第二次：00b38a1b5cff45ab5288090ffb9da605
+  * 优化调试：gunicorn加reload，代码变化能自动重载
+  * 优化调试：都打算去用VSCode远程调试（Flask）代码，后来问题解决了，才没继续
+  * 尝试更换Selenium为selenium-wire，解决了问题
+  * 后续深究
+    * 研究了Selenium和Selenium-wire的源码，也没找到导致此问题的根本原因
+    * 只算知道了，元素不显示visibility是False、_find_element找不到等，都会导致此处的StaleElementReferenceException
+
+最终解决办法：
+
+把
+
+```bash
+from selenium import webdriver
+```
+
+换成：
+
+```bash
+`from seleniumwire import webdriver`
+```
+
+根本原因：暂时未知。
+
+感觉像是：
+此处把Selenium安装了Selenium-wire后，导致内部的 获取WebElement的逻辑，从local变成了remote的了？
+导致后续再去获取WebElement，经常性发生，获取不到，或者是：
+`element is not attached to the page document`
+导致此处报错。
+
+重点：
+
+* 在所有能试的办法都试完后，（在某次看代码期间，瞟到了seleniumwire？，使得自己）能（突然的、灵光乍现地）想到，去把Selenium换Selenium-wire试试效果
+  * 一试，果然有效
+
+相关内容：
+
+* 【已解决】Selenium报错：exception stale element reference element is not attached to the page document
+* 【已解决】疑似Selenium-wire导致了普通Selenium异常：selenium open exception stale element reference
+* 【已解决】Selenium第一次正常但第二次报错：stale element reference not attached to the page document
+* 【未解决】用VSCode远程调试Flask项目Python代码
+* 【已解决】CentOS7中重启ssh报错：Failed to restart ssh.service Unit not found
+* 【无需解决】Selenium的headless的Chrome中元素is_displayed是False
+* 【已解决】gunicorn当Python代码变化时如何自动重新加载
+* 【已解决】Selenium模拟bing必应搜索期间获取元素的text值是空
+* 【已解决】Selenium模拟bing必应搜索报错：Message no such element Unable to locate element selector id search_icon
+
+#### 自动化测试
+
+##### 利用库、优化库、优化依赖底层库的能力：facebook-wda、WebDriverAgent
+
+不仅有利用库的能力，还有优化库的能力，甚至还有优化库所依赖的底层的服务端的库的能力：facebook-wda、WebDriverAgent
+
+对于之前折腾的iOS的自动化测试自动化抓包
+对于技术的能力等级，至少可以分这几层：
+
+* level1：仅仅是使用：别人的库
+  * 即：openatx/facebook-wda
+  * https://github.com/openatx/facebook-wda
+* level2：优化改动：别人的库
+  * 即：openatx/facebook-wda
+  * https://github.com/openatx/facebook-wda
+* level3：优化改动，别人库内部依赖的服务端的库
+  * 即：appium/WebDriverAgent
+  * 解释：
+    * https://github.com/openatx/facebook-wda
+    * 内部用到了
+    * https://github.com/appium/WebDriverAgent
+      * 最早是：Facebook开发的
+        * 后来archive归档不更新了
+      * 现在是：appium维护的
+* level4：作为服务端的库所依赖的底层的开发者
+  * 即：作为appium/WebDriverAgent的依赖的底层，即Apple的XCTest框架的开发者
+
+我自己现在：
+
+* 已实现：level的1，2，3
+  * level1：不仅仅是使用别人的库：Python语言的openatx/facebook-wda
+  * level2：还根据自己需求去改动，优化，扩展别人的库：Python语言的openatx/facebook-wda
+  * level3：甚至还去改动和扩展该库所依赖的底层的服务端的：Objective-C语言的appium/WebDriverAgent
+* 有需要也可以实现leve 4
+  * level4：即成为appium/WebDriverAgent的底层依赖的Apple的XCTest的库的开发者
+    * 如果有需要，也是可以去做的，技术上没太大问题
+
+关于已实现的level 1，2，3的相关帖子：
+
+* 【未解决】把Python的facebook-wda合并到原有抓包工具框架中
+* 【未解决】Mac中wda自动化操作iPhone6中的微信公众号
+* 【未解决】Mac中用wda自动化操作微信
+* 【未解决】Mac中用facebook-wda操作iOS真机iPhone6
+* 【未解决】Mac中用facebook-wda自动化测试操作iOS设备
+
+以及后续有个更加实际的例子：
+
+对于获取页面xml源码速度极其慢的优化过程：
+
+* 【已解决】wda用source()获取页面源码xml速度极其慢
+* 【已解决】尝试解决facebook-wda和WebDriverAgent的获取源码很慢的原因
+* 【已解决】用XCode实时调试WebDriverAgent希望找到并解决获取页面源码慢的原因
+* 【未解决】WebDriverAgent和wda获取源码提速：尝试shouldLoadSnapshotWithAttributes参数
+* 【未解决】调节Appium的Capability的参数去提高facebook-wda和WebDriverAgent获取源码的速度
+* 【未解决】WebDriverAgent获取源码慢尝试调节参数：shouldUseTestManagerForVisibilityDetection
+* 【已解决】Xcode调试WebDriverAgent研究fb_waitUntilSnapshotIsStable含义希望提高获取源码速度
+* 【已解决】WebDriverAgent报错：Internal error Error Domain com.apple.dt.xctest.automation-support.* error Code 5 Error kAXErrorServerNotFound getting snapshot for element
+* 【已解决】WebDriverAgent中fb_waitUntilSnapshotIsStable的作用和含义即为何加上
+
+直到最后的：
+
+* 【已解决】WebDriverAgent获取源码慢尝试调节参数：FB_ANIMATION_TIMEOUT
+才最终解决了问题。
+
+期间涉及了多个层次的内容：
+
+* level1：写Python代码调用openatx/facebook-wda
+* level2：根据需要改动和调试：openatx/facebook-wda
+* level3：根据需要去改动和调试：Objective-C语言的appium/WebDriverAgent
+  * 其中包括，用XCode实时调试代码的能力
+
+以及：
+
+* 善于利用google搜索资料
+  * 包括找到WebDriverAgent的官方的库
+    * 包括原始的Facebook 和 后期更新的Appium的
+* 且能看懂和利用上别人讨论的内容
+  * 才能找到解决问题的思路，并去验证猜想
+
+想要彻底解决此处问题，中间所需各种能力，缺一不可。
+
+##### python的wda获取页面源码xml时报错超时15秒
+
+能解决此处问题，需要：
+
+* 相关的折腾经验
+  * Postman的使用
+    * 知道如何发送POST消息
+* 调研源代码的能力
+  * 能从很有限的线索
+    * 输出了：Cannot take the snapshot of Window after 15 seconds
+  * 最终找到：
+    * 对应代码是fb_snapshotWithAttributes
+      * 但是还无法定位具体哪一个调用了fb_snapshotWithAttributes
+  * 以及加上其他辅助
+    * 搜：Skipping source dump for
+    * 而找到了是：writeXmlWithRootElement
+  * 最终找到参数是：FBConfiguration和snapshotTimeout
+    * 和对应的api是：/appium/settings
+  * 但是却又无法POST设置成我们要的值
+    * 且也无法GET获取到当前的值
+  * 后来是通过查看另一个接口：/wda/apps/list
+    * 虽然也不行，但是无意间（用心才能）发现：python的wda的库 中是可以工作的
+  * 最终推断和理解出：需要当前session才能调用/wda/apps/list
+  * 但是去POST相关参数snapshotTimeout却还是不行
+  * 再去研究代码（而无意见发现，可能是）需要上层加上settings
+  * 最终才能通过session的/appium/settings，且POST参数是settings下面加上snapshotTimeout，最终实现修改参数成功
+  * 设置的超时的值比默认的15秒大很多，比如70秒
+* 最终实现
+  * 背景=问题：当前获取xml源码，检索定位元素很慢的情况下，往往要20多秒
+  * 之前：默认session是15秒就超时 -> 导致无法获取到内容
+  * 现在改为：70秒
+    * 注：比 默认Python的wda和底层wda的http通信超时是60秒 还要大 避免2个超时互相影响
+  * 避免了超时问题
+  * 才最终能获取到我们要的元素
+    * 和之前可能出现的问题：一旦超时15秒后，无法获取xml全部的源码
+
+详见：
+
+* 【已解决】wda去获取页面源码时报错：Cannot take the snapshot of Window after 15 seconds
+
+##### 红米Note8Pro的uiautomator2自动抓包工具初始化问题
+
+uiautomator2初始化红米Note8Pro，报错：
+
+```bash
+发生异常: OSError
+[Errno Uiautomator started failed.] https://github.com/openatx/uiautomator2/wiki/Common-issues: 'adb shell am instrument -w -r -e debug false -e class com.github.uiautomator.stub.Stub com.github.uiautomator.test/android.support.test.runner.AndroidJUnitRunner'
+```
+
+其实此处很难从现象中，直接看出错误的原因。
+
+需要自己具有足够的技术敏感度，加上及时想到之前的类似经验：
+
+从
+`grant permissions`
+入手，怀疑是：
+权限问题
+-》再去查证，uiautomator2相关的内容（ATX和com.github.uiautomator.test）是否有安装
+-》通过最近安装时间排序发现，果然没有安装
+-》从而确认，此处是没有安装成功uiautomator2相关内容
+-》而最直接的，最可能的原因是：权限问题
+-》从而去找，哪里可以设置权限
+-》从之前 微信中对于网页用浏览器打开，弹框中需要安装QQ浏览器时，都会弹出一个，好像叫做：允许位置来源去安装应用
+-》怀疑就是这个 允许未知来源 去安装应用方面的权限
+-》但是设置中却始终找不到
+-》无意间，也注意到，USB调试中，有选项比较像是有关系的，发现是：
+
+* USB安装：允许通过USB安装应用
+  * 此处需要（注册并）登录小米账号后，才给开启
+* USB调试（安全设置）：允许通过UBS调试修改权限或模拟点击
+  * 多次弹框确认，才能启用
+
+-》最终证实，的确是此处的：USB安装，起了效果
+-》使得log中的：
+
+```bash
+[I 200217 14:45:37 init:330] Install com.github.uiautomator, com.github.uiautomator.test 2.1.1
+[I 200217 14:45:38 init:300] - app-uiautomator.apk installed
+[I 200217 14:45:38 init:300] - app-uiautomator-test.apk installed
+[I 200217 14:45:38 init:308] Install atx-agent 0.8.2
+[I 200217 14:45:39 init:342] Check atx-agent version
+Successfully init AdbDevice(serial=hmucaei75ptk7szs)
+```
+
+去安装ATX和com.github.uiautomator.test，才得以正常的通过USB安装
+注：此处手机和Mac是USB连接的
+-》从而才得以正常继续调试。
+
+期间需要：
+
+* 良好的技术敏感度：能意思到是grant permissions方面的问题
+* 相关的经验：
+  * 对于uiautomator2的了解
+    * 之前折腾过多个设备（安卓6的华按畅享6S、小米9），多次的uiautomator2的初始化
+      * 才知道此处要去安装uiautomator2相关的内容
+        * 具体说就是：ATX和com.github.uiautomator.test
+  * 对安卓设备和权限的了解
+    * 知道安装普通app会涉及到权限问题
+    * 以及此处USB安装，从怀疑到确认，是USB安装方面的权限问题
+才最终找到：
+开启了 USB安装
+（和顺带也开启 USB调试（安全设置），供后续uiautomator2测试手机提供方便）
+才使得顺利安装
+ATX和com.github.uiautomator.test
+才能让uiautomator2正常的初始化完毕。
+
+详见：
+
+* 【已解决】红米Note8Pro的uiautomator2初始化出错：OSError Errno Uiautomator started failed
+
+##### uiautomator2的dump_hierarchy只能导出微信公众号搜索结果的部分页面源码
+
+折腾过程中的值得一提的是：
+
+* 思路要开阔
+  * 想到去导出搜索之前和搜索之后的页面，都是可以dump正常的
+    * 可以推断出就是uiautomator2无法检测出X5内核节点其下子节点的内容更新
+* 有打破砂锅问到底的精神=追根溯源=找到问题根源
+  * 中间已经找到了解决办法了：重启uiautomator2的service服务
+    * 但是不满足于找到解决办法，还是继续去找原因
+      * 最终找到了是：uiautomator2不支持app（最新版微信）中的网页（公众号搜索结果页面）中，除了本身的android自带的webview之外的节点，此处是腾讯X5浏览器内核节点com.tencent.tbs.core.webkit.WebView的，其下的内容的更新
+* 知识面要光，基础要相对扎实
+  * 除了能看懂本身项目中python的代码
+    * 以及python的uiautomator2的代码
+  * 还要能看到android-uiautomator-server的java代码
+    * 从而才能逐渐推断内部函数调用的顺序和功能实现的逻辑
+
+相关：
+
+* 【未解决】如何修改Android项目android-uiautomator-server的Java代码并重新打包生成2个apk
+* 【未解决】为何uiautomator2的dump_hierarchy导出的页面xml源码中没有visible-to-user
+* 【未解决】为何uiautomator2对于新版微信搜索结果列表页面是新页面无法识别
+* 【记录】微信中查看X5调试页面和tbs调试页面
+* 【整理】adb shell中的am start命令
+* 【未解决】研究为何重启uiautomator的service可正常导出最新完整页面源码
+* 【记录】adb shell输出安卓设备中的各种信息
+* 【未解决】uiautomator2中dump_hierarchy好像是由于_last_source内容没变化即页面缓存导致导出内容没更新
+* 【已解决】uiautomator2中谁负责处理jsonrpc发送过来的请求
+* 【已解决】搞懂uiautomator-server中最终的底层实现dumpWindowHierarchy的处理返回页面数据的逻辑
+* 【未解决】uiautomator2的dump_hierarchy导出页面不完整的原因
+* 【已解决】用weditor实时查看安卓当前页面中的xml源码
+* 【未解决】如何确保uiautomator2的dump_hierarchy能导出页面中NAF的元素节点
+* 【已解决】搞懂weditor的Dump Hierarchy导出页面xml源码的内部逻辑
+* 【已解决】adb shell uiautomator dump底层的导出安卓页面xml源码的逻辑
+* 【已解决】python的uiautomator2报错：uiautomator2.exceptions.JsonRpcError -32601 Method not found data injectInputEvent
+* 【已解决】uiautomator2中导出页面源码中NAF是什么意思
+* 【未解决】uiautomator2中dump_hierarchy中只能获取到页面的部分的xml源码
+* 【未解决】Python的uiautomator2运行报错：ParseError junk after document element line 1 column
+* 【整理】TBS腾讯浏览器服务：X5浏览器和X5内核
+* 【未解决】uiautomator2中实现类似adb shell uiautomator dump导出完整页面xml源码
+* 【未解决】手动发送uiautomator2的jsonrpc的dumpWindowHierarchy尝试返回页面xml源码
+* 【记录】自动抓包工具抓包微信号：动卡空间
+
+##### adb install apk经常卡死
+
+现象：
+`adb install xxx.apk`
+偶尔会卡死在：
+`Performing Streamed Install`
+卡死的频率：之前是很偶尔，且容易解决：USB数据线拔插一下等手段，即可搞定
+后来变成，经常卡死，很难解决。
+
+经过一番折腾，包括但不限于：
+
+* 安卓手机上
+  * 重新拔插USB数据线
+  * 重启手机
+  * USB调试
+    * 重新授权
+* Mac上
+  * USB数据转接头
+    * 重新拔插USB数据线
+    * 更换USB数据线
+  * VSCode
+    * 重启VSCode
+* adb
+  * 相关
+    * monitor
+  * 命令
+    * 确认apk版本匹配
+      * 满足targetSdkVersion
+    * 加参数
+      * -r
+      * -f
+    * 试了：adb shell pm install
+    * kill后重启
+      * 先adb kill-server再adb devices
+    * 长度降低（避免快要超过255的限制？）
+      * 部分时候有效，部分缓解卡死问题
+都没有彻底解决问题。
+最后是，看到别人帖子：
+[Android Studio stuck at installing APK, the adb sometimes fails to install the APK, and somehow Android Studio interferes with adb's install command - Stack Overflow](https://stackoverflow.com/questions/63513361/android-studio-stuck-at-installing-apk-the-adb-sometimes-fails-to-install-the-a)
+提到
+`adb version`
+-》才想到，去看看自己的adb的版本
+-》然后才发现自己的是29.0.5，是很老的版本
+-》才去升级到最新的30.0.5
+从而彻底解决了
+`adb install xxx.apk`
+卡死的问题，好像也顺带解决了
+usb连接不稳定，偶然报错：
+`USB disconnected, fallback to WiFi`
+的问题。
+
+详见：
+
+* 【已解决】Mac中用adb install安装安卓apk卡死
+* 【无需解决】Python中如何通过adb或其他命令操作安卓手机设备内部下载apk文件再内部安装apk文件
+* 【已解决】给Mac中adb升级到最新版本
+* 【部分解决】尝试减少adb install整体命令的长度去解决adb install安装安卓apk卡死
+* 【未解决】试试ATX的WiFi无线而不用有线USB数据线能否调试安卓设备
 
 #### 数据库
 
@@ -995,6 +1618,41 @@ Django后端的代码耗时太长，很多的mysql的查询和其他操作，导
 
 * [【已解决】测评系统小程序出错：SyntaxError Unexpected EOF 0/page-frame.html](https://www.crifan.com/evaluation_mimiprogram_syntaxerror_unexpected_eof_0_page_frame_html)
 
+#### 多平台
+
+#### electron中zmq.node报错
+
+报错信息：
+
+```bash
+Uncaught Error: A dynamic link library (DLL) initialization routine failed.
+\\?\D:\dev\DevRoot\mitmdumpurlsaver\electron-python-example\node_modules\zerorpc\node_modules\zeromq\build\Release\zmq.node
+  at process.module.(anonymous function) [as dlopen] (ELECTRON_ASAR.js:166:20)
+  at Object.Module._extensions..node (module.js:671:18)
+  at Object.module.(anonymous function) [as .node] (ELECTRON_ASAR.js:166:20)
+  at Module.load (module.js:561:32)
+  at tryModuleLoad (module.js:504:12)
+  at Function.Module._load (module.js:496:3)
+  at Module.require (module.js:586:17)
+  at require (internal/module.js:11:18)
+  at Object.<anonymous> (D:\dev\DevRoot\mitmdumpurlsaver\electron-python-example\node_modules\zerorpc\node_modules\zeromq\lib\index.js:6:11)
+  at Object.<anonymous> (D:\dev\DevRoot\mitmdumpurlsaver\electron-python-example\node_modules\zerorpc\node_modules\zeromq\lib\index.js:848:3)
+```
+
+* 重点：
+* 
+  * 网上找不到解决办法后，能有继续自己研究问题的决心
+  * 能有足够的技术敏感度，从现象中看出一些端倪
+    * 能从错误现象中的 Uncaught Error: A dynamic link library (DLL) initialization routine failed 感觉出是dll库加载出错
+    * 能从 `\\?\D:\dev\DevRoot\mitmdumpurlsaver\electron-python-example\node_modules\zerorpc\node_modules\zeromq\build\Release\zmq.node` 看出后面的路径是正确的
+      * `D:\dev\DevRoot\mitmdumpurlsaver\electron-python-example\node_modules\zerorpc\node_modules\zeromq\build\Release\zmq.node`
+    * 然后才是去分析 `node_modules\zerorpc\node_modules\zeromq\lib\index.js`
+    * 最终找到是路径错误的原因
+
+详见：
+
+* 【已解决】windows中启动Electron-python报错：Uncaught Error A dynamic link library DLL initialization routine failed zerorpc zeromq zmq.node
+
 #### 移动端
 
 ##### ReactNative iOS给导航栏添加图标
@@ -1186,6 +1844,26 @@ if (shouldReturnCurrentClient.booleanValue()) {
 
 * [【已解决】docbook中去make webhelp编译webhelp结果出错：Error: Could not find or load main class com.nexwave.nquindexer.IndexerMain](https://www.crifan.com/docbook_make_webhelp_error__could_not_find_or_load_main_class_com_nexwave_nquindexer_indexermain/)
 
+#### Mac
+
+##### Mac的Catalina中SecureCRT中rz上传图片有问题
+
+能从`rz`弹框的下半部分的Options部分是灰色的
+想到：是否是SecureCRT的问题
+后来通过其他线索，想到或许是Mac版本升级的问题
+重点在于思路够广：能想到是否是Mac版本问题
+否则，就在其他方向上陷入死路了
+
+所以解决此问题：
+
+* 思路要开拓 = 技术敏感度高
+  * 能从有限的现象，想到很多天之前的Mac的版本的升级
+    * Mac升级到最新的Catalina
+
+详见：
+
+* 【未解决】Mac中用SecureCRT无法用rz上传文件到CentOS服务器
+
 ## crifan的逻辑和整理归纳能力
 
 ### 汽车销售领域内客户和线索逻辑的再优化
@@ -1211,9 +1889,9 @@ if (shouldReturnCurrentClient.booleanValue()) {
 * 某同事
   * 时间长：花了2天
   * 效果差：去水印效果不好
-        * 水印中间水平位置呈放射状
-          * 很突出和明显，影响原始视频内容
-            * ![removed_watermark_bad](img/removed_watermark_bad.jpg)
+    * 水印中间水平位置呈放射状
+      * 很突出和明显，影响原始视频内容
+        * ![removed_watermark_bad](img/removed_watermark_bad.jpg)
   * 步骤繁琐：
     * 需要先准备蒙层图片，才能去处理
     * 且水印有不同位置，需要不同的蒙层图片
